@@ -630,6 +630,17 @@ document.addEventListener('click', () => sampleRUM('click'));
 
 loadPage(document);
 
+function linkImages(main) {
+  main.querySelectorAll('picture').forEach((picture) => {
+    const p = picture.parentElement;
+    const a = p.querySelector('a');
+    if (a && a.textContent.includes('://')) {
+      a.textContent = '';
+      a.append(picture);
+    }
+  });
+}
+
 function buildHeroBlock(main) {
   const h1 = main.querySelector('h1');
   const picture = main.querySelector('picture');
@@ -677,6 +688,7 @@ export function decorateMain(main) {
   decoratePictures(main);
   // forward compatible link rewriting
   makeLinksRelative(main);
+  linkImages(main);
 
   // hopefully forward compatible button decoration
   decorateButtons(main);
@@ -715,6 +727,7 @@ async function loadLazy(doc) {
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   addFavIcon(`${window.hlx.codeBasePath}/styles/favicon.svg`);
 }
+
 
 /**
  * loads everything that happens a lot later, without impacting
