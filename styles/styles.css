@@ -20,8 +20,8 @@
   --text-color: #000;
 
   /* fonts */
-  --body-font-family: 'helvetica neue', helvetica, ubuntu, roboto, noto, sans-serif;
-  --heading-font-family: var(--body-font-family);
+  --body-font-family: 'Roboto Condensed', 'Roboto Condensed-fallback';
+  --heading-font-family: 'Playfair Display', 'Playfair Display-fallback';
   --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
 
   /* body sizes */
@@ -41,6 +41,22 @@
   --nav-height: 64px;
 
 }
+
+@font-face {
+  font-family: "Roboto Condensed-fallback";
+  size-adjust: 88.91000000000001%;
+  ascent-override: 110%;
+  src: local("Arial");
+}
+
+@font-face {
+  font-family: "Playfair Display-fallback";
+  size-adjust: 111.19999999999999%;
+  ascent-override: 92%;
+  src: local("Times New Roman");
+}
+
+
 
 body {
   font-size: var(--body-font-size-m);
@@ -67,6 +83,7 @@ h4, h5, h6 {
   margin-top: 1em;
   margin-bottom: .5em;
   scroll-margin: calc(var(--nav-height) + 1em);
+  font-family: var(--heading-font-family);
 }
 
 h1 { font-size: var(--heading-font-size-xxl) }
