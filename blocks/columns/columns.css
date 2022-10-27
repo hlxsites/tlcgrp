@@ -131,6 +131,13 @@ h2#our-capabilities {
     .case-studies-custom .new-image-set img:nth-last-child(1) {
         width: 50%;
     }
+
+    .arrow-icon-style .new-image-set ul li {
+        list-style: none;
+        font-size: 15px;
+        font-family: var(--alt-font-family);
+        line-height: 30px;
+    }
 }
 
 @media (max-width:480px){
@@ -176,7 +183,8 @@ h2#our-capabilities {
     h3#partner-partnerships,
     h3#integration-integrations,
     h3#monetization-monetization,
-    h3#digital-digital-content-and-interactions {
+    h3#digital-digital-content-and-interactions,
+    h3#support-contact-center {
         display: block;
         text-align: center;
         font-size:21px;
@@ -207,7 +215,8 @@ h2#our-capabilities {
     span.icon.icon-partner,
     span.icon.icon-integration,
     span.icon.icon-monetization,
-    span.icon.icon-digital{
+    span.icon.icon-digital,
+    span.icon.icon-support{
       display: block;
     }
     .columns > div > div h4 {
@@ -246,7 +255,8 @@ h2#our-capabilities {
      h3#partner-partnerships span,
      h3#integration-integrations span,
      h3#monetization-monetization span,
-     h3#digital-digital-content-and-interactions span   {
+     h3#digital-digital-content-and-interactions span,
+     h3#support-contact-center span   {
         margin: 22px;
     }
     .columns > div > div p em {
@@ -325,7 +335,10 @@ h2#our-capabilities {
         text-align: center;
     }
 
-    
+    .section.background a {
+        color: #010101;
+        font-size: 14px;
+    }
 
 
 

@@ -740,14 +740,39 @@ a.button:hover, a.button:focus, button:hover, button:focus {
 main .section .default-content-wrapper p {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 0px;
   font-size: 14px;
   margin-top: 0;
 }
 
 main .section.background.carve-career .default-content-wrapper {
   margin-left: 0px;
-  margin-top: 20px;
+  margin-top: 50px;
+}
+
+a.button:any-link, button {
+ 
+  padding: 5px 0px;
+ 
+}
+.section.background.carve-career {
+  height: 500px;
+  margin-top:50px;
+}
+main .section.background.carve-career .default-content-wrapper p {
+  color: black;
+  padding: 28px 0px;
+}
+.section.background.carve-career-all-section img {
+  width: 60px;
+  margin-top:50px;
+}
+.section.background.carve-career-all-section  h1,
+.section.background.carve-career-all-section p{
+  color:black;
+}
+main .section.background .default-content-wrapper {
+  margin-top: 0px;
 }
 
 

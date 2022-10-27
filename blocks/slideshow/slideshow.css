@@ -5,9 +5,7 @@
   --slideshow-nav-background: #0006;
   --heading-font-size-s: 20px;
 }
-.azam{
-  color:red;
-}
+
 
 main .slideshow-container {
   padding: 0;
@@ -31,9 +29,7 @@ main .slideshow::-webkit-scrollbar {
   display: none; /* Safari and Chrome */
 }
 
-.slideshow-overlay h1 span {
-  color: red;
-}
+
 
 /* slide */
 main .slideshow > div,

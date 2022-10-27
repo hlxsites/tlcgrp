@@ -712,3 +712,14 @@ function loadDelayed() {
   window.setTimeout(() => import('./delayed.js'), 3000);
   // load anything that can be postponed to the latest here
 }
+
+// new window opet tab script
+// document.addEventListener("click", function(e) {
+//   if (e.target.tagName == "A" &&
+//           !e.target.hasAttribute("target"))
+//   {
+//       e.target.setAttribute("target", "_blank");
+//   }
+// }); 
+
+

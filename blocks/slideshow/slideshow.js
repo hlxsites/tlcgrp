@@ -44,25 +44,31 @@ export default async function decorate(block) {
   // setup for multiple slides
   if (slides.length > 1) {
     let index = 0;
+    console.log('index txt' + index);
     setInterval(() => {
+      
       // remove heading animations
       block.querySelectorAll('span.slideshow-reveal').forEach((span) => {
         span.classList.remove('slideshow-reveal');
       });
+      
       if (block.scrollWidth - block.scrollLeft > block.offsetWidth) {
+        
         // next slide
         index += 1;
         block.scrollLeft += block.offsetWidth;
       } else {
+        
         // back to start
         index = 0;
         block.scrollLeft = 0;
+        
       }
       // add next heading animation
       block.children[index].querySelectorAll('span').forEach((span) => {
         span.classList.add('slideshow-reveal');
       });
-    }, 7000);
+    }, 1000);
     window.addEventListener('resize', () => {
       block.scrollLeft = 0;
     });
