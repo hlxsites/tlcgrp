@@ -12,6 +12,7 @@ main .slideshow-container {
 }
 
 main .slideshow-container > div.slideshow-wrapper {
+  opacity: 1;
   position: relative;
   width: 100%;
   max-width: 100%;
@@ -21,37 +22,35 @@ main .slideshow-container > div.slideshow-wrapper {
 main .slideshow {
   display: flex;
   overflow-x: hidden;
-  scroll-behavior: smooth;
   scrollbar-width: none; /* Firefox */
 }
+
+main .slideshow.slideshow-transition {
+  scroll-behavior: smooth;
+}
+
+
 
 main .slideshow::-webkit-scrollbar { 
   display: none; /* Safari and Chrome */
 }
 
 
-
 /* slide */
 main .slideshow > div,
 main .slideshow .slideshow-slide {
   display: flex;
+  position: relative;
   flex-direction: column;
   width: 100%;
   flex-shrink: 0;
   overflow-y: hidden;
 }
 
-@media (min-width: 600px) {
-  main .slideshow > div,
-  main .slideshow .slideshow-slide {
-      position: relative;
-  }
-}
-
-main .slideshow > div h2,
-main .slideshow > div p {
+main .slideshow > div > * {
   margin: 0;
   padding: 0;
+  text-align: center;
 }
 
 main .slideshow picture {
@@ -94,14 +93,19 @@ main .slideshow img {
 /* overlay */
 main .slideshow .slideshow-overlay {
   display: flex;
-  flex-direction: column;
+  position: absolute;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  flex-flow: row wrap;
+  align-content: center;
   justify-content: center;
-  height: 150px;
-  overflow-y: auto;
-  margin: 0;
-  padding: 0 20px;
+  padding: 0 40px;
+  height: 100%;
+  width: 100%;
   color: white;
-  background: var(--overlay-background-color);
+  background: unset;
+  background: linear-gradient(180deg, transparent 0%, var(--overlay-background-color) 100%)
 }
 
 @media (min-width: 600px) {
@@ -110,22 +114,20 @@ main .slideshow .slideshow-overlay {
   }
 
   main .slideshow .slideshow-overlay {
-      position: absolute;
-      box-sizing: border-box;
-      top: 0;
-      left: 0;
-      flex-flow: row wrap;
-      align-content: center;
-      justify-content: left;
-      padding: 0 80px;
-      height: 100%;
-      width: 100%;
-      background: unset;
-      background: linear-gradient(180deg, transparent 0%, var(--overlay-background-color) 100%)
+    justify-content: left;
+    padding: 0 80px;
   }
 
   main .slideshow .slideshow-overlay > * {
     max-width: 50vw;
+    text-align: left;
+  }
+
+  main .slideshow > div h2,
+  main .slideshow > div p {
+    margin: 0;
+    padding: 0;
+    text-align: left;
   }
 }
 
@@ -133,26 +135,6 @@ main .slideshow .slideshow-overlay h1,
 main .slideshow .slideshow-overlay h2 {
   font-size: var(--heading-font-size-xl);
 }
-
-main .slideshow .slideshow-reveal {
-  color: transparent;
-  background-image: linear-gradient(#fff, #fff);
-  background-repeat: no-repeat;
-  background-clip: text;
-  /* stylelint-disable-next-line property-no-vendor-prefix */
-  -webkit-background-clip: text;
-  background-position: -700px 0;
-  animation: reveal 2.5s ease-in-out;
-  animation-fill-mode: forwards;
-  /* stylelint-disable-next-line property-no-vendor-prefix */
-  -webkit-animation-fill-mode: forwards;
-}
-
-/* @keyframes reveal {
-  100%{
-    background-position: 0 0;
-  }
-} */
 
 main .slideshow .slideshow-overlay .slideshow-btn-wrapper {
   margin: var(--spacing-s) var(--spacing-xs);
@@ -174,11 +156,7 @@ main .slideshow .slideshow-overlay .slideshow-btn:hover {
   background: var(--overlay-link-hover-color);
 }
 
-
-
-
-@media (max-width:480px){
-
+@media (max-width:1px){
   main .slideshow .slideshow-overlay {
     display: flex;
     flex-direction: column;
@@ -190,7 +168,7 @@ main .slideshow .slideshow-overlay .slideshow-btn:hover {
     margin: 0;
     padding: 0 20px;
     color: white;
-}
+  }
   
    main .slideshow .slideshow-overlay h1, main .slideshow .slideshow-overlay h2 {
     font-size: 20px;
@@ -201,18 +179,19 @@ main .slideshow .slideshow-overlay .slideshow-btn:hover {
 
   .section.slideshow-container {
     height: 385px;
-}
-.slideshow-wrapper {
-  height: 400px;
-}
-.slideshow.block {
-  height: 100%;
-}
-main .slideshow .slideshow-img {
-  position: relative;
-  height: 120vh;
-  width: 100%;
-}
+  }
 
+  .slideshow-wrapper {
+    height: 400px;
+  }
 
+  .slideshow.block {
+    height: 100%;
+  }
+
+  main .slideshow .slideshow-img {
+    position: relative;
+    height: 120vh;
+    width: 100%;
+  }
 }

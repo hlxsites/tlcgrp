@@ -1,6 +1,6 @@
 export default async function decorate(block) {
   const slides = [...block.children];
-  slides.forEach((slide, index) => {
+  slides.forEach((slide) => {
     const overlay = document.createElement('div');
     overlay.classList.add('slideshow-overlay');
     [...slide.firstElementChild.children].forEach((child) => {
@@ -20,32 +20,19 @@ export default async function decorate(block) {
       slide.classList.add('slideshow-slide');
     });
     if (overlay.children) {
-      const br = overlay.querySelector('h1 >  h2 > br');
-      if (br) {
-        // animate heading text after <br>
-        const animateTextNode = br.nextSibling;
-        if (animateTextNode) {
-          const span = document.createElement('span');
-          
-          
-          span.textContent = animateTextNode.textContent;
-          if (!index) {
-            span.classList.add('slideshow-reveal');
-          }
-          animateTextNode.replaceWith(span);
-          
-          
-        }
-      }
       slide.append(overlay);
     }
   });
 
   // setup for multiple slides
   if (slides.length > 1) {
+    // duplicate first slide at the end of the slideshow to create illusion of endless loop
+    block.append(slides[0].cloneNode(true));
+
     let index = 0;
     console.log('index txt' + index);
     setInterval(() => {
+
       
       // remove heading animations
       block.querySelectorAll('span.slideshow-reveal').forEach((span) => {
@@ -54,9 +41,12 @@ export default async function decorate(block) {
       
       if (block.scrollWidth - block.scrollLeft > block.offsetWidth) {
         
+
+      if (index < slides.length) {
         // next slide
-        index += 1;
+        block.classList.add('slideshow-transition');
         block.scrollLeft += block.offsetWidth;
+
       } else {
         
         // back to start
@@ -69,8 +59,23 @@ export default async function decorate(block) {
         span.classList.add('slideshow-reveal');
       });
     }, 1000);
+
+        index += 1;
+        setTimeout(() => {
+          block.classList.remove('slideshow-transition');
+          // check if last slide
+          if (index === slides.length) {
+            // quietly sneak back to start
+            block.scrollLeft = 0;
+            index = 0;
+          }
+        }, 1000);
+      }
+    }, 7000);
+    
     window.addEventListener('resize', () => {
       block.scrollLeft = 0;
+      index = 0;
     });
   }
 }

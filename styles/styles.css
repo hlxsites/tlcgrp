@@ -574,7 +574,7 @@ main .section.background.carve-career .default-content-wrapper {
     font-family: var( --alt-font-family);
 }
 
-/* progressive section appearance */
+/* progressive section and block appearance */
 main .section[data-section-status='loading'],
 main .section[data-section-status='initialized'] {
   display: none;
@@ -700,7 +700,12 @@ display: block;
   }
 }
 
-
+/* cls fix */
+main .slideshow-wrapper,
+main .subnav-container,
+main .columns-container {
+  opacity: 0;
+}
 
 /* mobile code start here */
 
@@ -774,11 +779,6 @@ main .section.background.carve-career .default-content-wrapper p {
 main .section.background .default-content-wrapper {
   margin-top: 0px;
 }
-
-
-
-
-
 
 }
 
