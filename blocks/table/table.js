@@ -9,7 +9,6 @@ function buildCell(rowIndex) {
   if (!rowIndex) cell.setAttribute('scope', 'col');
   return cell;
 }
-
 export default async function decorate(block) {
   const table = document.createElement('table');
   const thead = document.createElement('thead');
@@ -17,12 +16,15 @@ export default async function decorate(block) {
   table.append(thead, tbody);
   [...block.children].forEach((child, i) => {
     const row = document.createElement('tr');
-    if (i) tbody.append(row);
-    else thead.append(row);
+    const td = document.createElement('td');
+    const colspan = document.createElement('colspan');
+    if (i) tbody.append(row, td, colspan);
+    else thead.append(row, td, colspan);
     [...child.children].forEach((col) => {
       const cell = buildCell(i);
       cell.innerHTML = col.innerHTML;
       row.append(cell);
+      colspan.append(cell);
     });
   });
   block.innerHTML = '';
