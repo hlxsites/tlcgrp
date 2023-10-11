@@ -847,6 +847,10 @@ main .form {
     padding-bottom: 15px;
   }
 
+  .career-head-section h1 {
+    text-align: center;
+  }
+
   main .section .default-content-wrapper h1 {
     font-size: 48px;
     margin-top: 0;
@@ -1430,6 +1434,12 @@ main .customer-journey-section .new-image-set > h5 {
     margin-top: 25px;
   }
 
+  main .address h2 {
+    font-size: 28px;
+    text-align: left;
+    padding-bottom: 20px;
+  }
+
   main .job-description-page:last-child h2 {
     text-align: center;
     font-size: 22px;
@@ -1469,7 +1479,13 @@ main .customer-journey-section .new-image-set > h5 {
 
   main .support-services h1 {
     text-align: center;
-    font-size: 14px;
+    font-size: 28px;
+  }
+
+  main .career-head-section h1,
+  main .contact-us-section h1 {
+    font-size: 28px;
+    text-align: center;
   }
 
   main .support-services h6 {
